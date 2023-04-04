@@ -21,7 +21,6 @@ public class UserConfig {
                     "Lichinga",
                     "ismaili@gmail.com",
                     763080423,
-                    27,
                     LocalDate.of(1995, MAY, 4),
                     "Buolamwini1995");
             User halima = new User(
@@ -30,8 +29,7 @@ public class UserConfig {
                     "Lichinga",
                     "halima@gmail.com",
                     763080423,
-                    27,
-                    LocalDate.of(1995, MAY, 4),
+                    LocalDate.of(1998, MAY, 4),
                     "Buolamwini1995");
             repository.saveAll(
                     List.of(islichinga, halima)

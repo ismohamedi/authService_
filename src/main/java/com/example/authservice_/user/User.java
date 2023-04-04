@@ -3,6 +3,8 @@ package com.example.authservice_.user;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.Period;
+
 @Entity
 @Table
 public class User {
@@ -22,6 +24,7 @@ public class User {
     private String surName;
     private String email;
     private  Integer phoneNumber;
+    @Transient
     private Integer age;
     private LocalDate dob;
     private String password;
@@ -35,7 +38,6 @@ public class User {
                 String surName,
                 String email,
                 Integer phoneNumber,
-                Integer age,
                 LocalDate dob,
                 String password) {
         this.id = id;
@@ -44,7 +46,6 @@ public class User {
         this.surName = surName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.age = age;
         this.dob = dob;
         this.password = password;
     }
@@ -54,7 +55,6 @@ public class User {
                 String surName,
                 String email,
                 Integer phoneNumber,
-                Integer age,
                 LocalDate dob,
                 String password) {
         this.username = username;
@@ -62,7 +62,6 @@ public class User {
         this.surName = surName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.age = age;
         this.dob = dob;
         this.password = password;
     }
@@ -92,7 +91,7 @@ public class User {
     }
 
     public Integer getAge() {
-        return age;
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
     public LocalDate getDob() {

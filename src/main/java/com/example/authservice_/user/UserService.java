@@ -34,4 +34,8 @@ public class UserService {
             throw new IllegalStateException("User with the given Id " + userId + " was not found");
         }
     }
+
+    public void updateUser(Long userId, User user){
+        Optional<User> userById = userRepository.findById(userId);
+    }
 }
